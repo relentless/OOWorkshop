@@ -1,4 +1,4 @@
-# C# Cheatsheet
+# C# OO Cheatsheet
 
 Taken from https://github.com/jwill9999/C-Sharp-Cheatsheet/blob/master/README.md
 
@@ -149,17 +149,18 @@ You ```can't``` create an instance of them.
 
 // We can't new up an abstract class
 abstract class FourLeggedAnimal
+{
+    public virtual string Describe()
     {
-        public virtual string Describe()
-        {
-            return "Not much is known about this four legged animal!";
-        }
+        return "Not much is known about this four legged animal!";
     }
+}
+    
  // We can inherit from it !
-    class Dog : FourLeggedAnimal
-    {
+class Dog : FourLeggedAnimal
+{
 
-    }
+}
 
 ```
 
@@ -173,19 +174,19 @@ Abstract methods are only allowed within abstract classes.
 We define them as abstract but without any code, then in our inherited class we override that method and include an implementation.
 
 ```c#
-  abstract class FourLeggedAnimal
-    {
-        public abstract string Describe();
-    }
+abstract class FourLeggedAnimal
+{
+    public abstract string Describe();
+}
 
 
-    class Dog : FourLeggedAnimal
+class Dog : FourLeggedAnimal
+{
+    public override string Describe()
     {
-        public override string Describe()
-        {
-            return "I'm a dog!";
-        }
+        return "I'm a dog!";
     }
+}
 
 ```
 
@@ -208,61 +209,60 @@ You cannot crateate an instance of an Interface.
 
 
 ```c#
-    class Program
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            List<Dog> dogs = new List<Dog>();
-            dogs.Add(new Dog("Fido"));
-            dogs.Add(new Dog("Bob"));
-            dogs.Add(new Dog("Adam"));
-            dogs.Sort();
-            foreach(Dog dog in dogs)
-                Console.WriteLine(dog.Describe());
-            Console.ReadKey();
-        }
+        List<Dog> dogs = new List<Dog>();
+        dogs.Add(new Dog("Fido"));
+        dogs.Add(new Dog("Bob"));
+        dogs.Add(new Dog("Adam"));
+        dogs.Sort();
+        foreach(Dog dog in dogs)
+            Console.WriteLine(dog.Describe());
+        Console.ReadKey();
     }
+}
     
 interface IAnimal
-    {
-        string Describe();
+{
+    string Describe();
 
-        string Name
-        {
-            get;
-            set;
-        }
+    string Name
+    {
+        get;
+        set;
+    }
+}
+
+class Dog : IAnimal, IComparable
+{
+    private string name;
+
+    public Dog(string name)
+    {
+        this.Name = name;
     }
 
-    class Dog : IAnimal, IComparable
+    public string Describe()
     {
-        private string name;
-
-        public Dog(string name)
-        {
-            this.Name = name;
-        }
-
-        public string Describe()
-        {
-            return "Hello, I'm a dog and my name is " + this.Name;
-        }
-       
-
-        // This method comes from the IComparable interface
-        public int CompareTo(object obj)
-        {
-            if(obj is IAnimal)
-                return this.Name.CompareTo((obj as IAnimal).Name);
-            return 0;
-        }
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        return "Hello, I'm a dog and my name is " + this.Name;
     }
+
+    // This method comes from the IComparable interface
+    public int CompareTo(object obj)
+    {
+        if(obj is IAnimal)
+            return this.Name.CompareTo((obj as IAnimal).Name);
+        return 0;
+    }
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+}
 
 ```
 
