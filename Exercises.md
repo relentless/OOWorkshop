@@ -2,7 +2,7 @@
 
 ## Part 1: How to do OO in C#
 
-In these exercises we will learn the C# syntax and rules for object orientation in C# by building up an application.
+In these exercises we will learn the C# syntax and rules for object orientation in C# by building up an object model for products in a web store such as Amazon.  This will be a console application.
 
 If you are not very familiar with OO, you may not finish this section.
 
@@ -33,6 +33,9 @@ Make all of the appropriate classes implement the IShippable interface.
 
 ### 1.4: Polymorphism
 
+Create a ShoppingBasket class which contains a collection of objects representing the items somebody is ordering.  Include a method which adds a product to the basket.
+
+Write a method which returns the total cost of the order, and one which returns the total weight of shippable items.
 
 
 ## Part 2: Object Model Design with OO
