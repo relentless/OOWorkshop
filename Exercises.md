@@ -1,10 +1,12 @@
 # Exercises
 
+These exercises are designed to help you learn and practice OO concepts in C#.  Don't worry if you don't finish them, especially if these things are new to you.
+
 ## Part 1: How to do OO in C#
 
-In these exercises we will learn the C# syntax and rules for object orientation in C# by building up an object model for products in a web store such as Amazon.  This will be a console application.
+In these exercises we will learn the C# syntax and rules for object orientation in C# by building up an object model for products in a web store similar to Amazon.
 
-If you are not very familiar with OO, you may not finish this section.
+Create a console application to create your classes in.  You will use this to try out your classes and objects, although you won't be writing an application as such.
 
 ### 1.1: Classes & Objects
 
@@ -15,13 +17,53 @@ Create a Product class which has some properties:
  
 It should also have a method 'Describe()' which returns a string including all of the details in a readable format.
 
+Create a couple of instances of your classes and use Describe() to output them to the console.
+
 ### 1.2: Inheritance
 
-Use your Product class as the parent for two derived classes, Book and CD.  They should have properties particular to those kinds of things, for example Book might have Author, Title and number of pages, CD might have a list of tracks and a length in time.
+#### 1.2.1: Simple Hierarchy
 
-Extend your object hierarchy with another class representing an audio book.  You will want a general class such as Book which inherits from Product, which is then the parent class for AudioBook and PhysicalBook.
+Use your Product class as the parent for two derived classes, Book and CD, with the folowing properties:
+
+**Book**  
+
+ * Title
+ * Author
+ * Number of Pages
+ 
+**CD**
+
+* Artist
+* Track List
+* Total Length
 
 Ensure the Describe() method works appropriately for these new classes.
+
+Again, try them out in the app with a couple of examples.
+
+#### 1.2.2: Extending the Hierarchy
+
+Extend your object hierarchy with another class representing an audio book.  This will require you to refine your class model by having a generic Book class which is the parent of the more specific AudioBook and TextualBook classes.  AudioBook should have the following properties:
+
+**AudioBook**
+
+ * Title
+ * Author
+ * Narrator
+ * Total Length
+ 
+ You should use the class hierarchy to share as many of these as possible in the Book class.
+
+The class hierarchy should look as follows:
+
+```
+            Product
+             /   \  
+            CD  Book
+               /     \
+              /       \
+       TextualBook  AudioBook
+```
 
 Make as many of the classes and methods as you can Abstract.  (The Product class for example can be abstract as it doesn't make sense to have an instance of a non-specific product).
 
