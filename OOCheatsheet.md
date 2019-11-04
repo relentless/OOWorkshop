@@ -1,6 +1,6 @@
 # C# OO Cheatsheet
 
-Taken from https://github.com/jwill9999/C-Sharp-Cheatsheet/blob/master/README.md
+Based on https://github.com/jwill9999/C-Sharp-Cheatsheet/blob/master/README.md
 
 # Index<br>
 
@@ -10,6 +10,7 @@ Taken from https://github.com/jwill9999/C-Sharp-Cheatsheet/blob/master/README.md
 [Abstract Class](#Abstract-Class)<br>
 [Abstract methods](#Abstract-methods)<br>
 [Interfaces](#Interfaces)<br>
+[Polymorphism](#Polymorphism)<br>
 
 
 # Classes
@@ -267,3 +268,61 @@ class Dog : IAnimal, IComparable
 ```
 
 <br>
+
+# Polymorphism
+
+Polymorphism allows you to handle derived classes of different types as if they were the parent type.
+
+```c#
+
+public class Shape
+{
+    public virtual void Draw()
+    {
+        Console.WriteLine("Performing base class drawing tasks");
+    }
+}
+
+class Circle : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine("Drawing a circle");
+    }
+}
+class Rectangle : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine("Drawing a rectangle");
+    }
+}
+
+// etc.
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Polymorphism at work #1: a Rectangle, Triangle and Circle
+        // can all be used whereever a Shape is expected. No cast is
+        // required because an implicit conversion exists from a derived 
+        // class to its base class.
+        var shapes = new List<Shape>
+        {
+            new Rectangle(),
+            new Triangle(),
+            new Circle()
+        };
+
+        // Polymorphism at work #2: the virtual method Draw is
+        // invoked on each of the derived classes, not the base class.
+        foreach (var shape in shapes)
+        {
+            shape.Draw();
+        }
+    }
+
+}
+
+```
