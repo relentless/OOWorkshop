@@ -12,7 +12,7 @@ Create a console application to create your classes in.  You will use this to tr
 
 Create a Product class which has some properties:
  * Id
- * Name
+ * DisplayName
  * Price
  
 It should also have a method 'Describe()' which returns a string including all of the details in a readable format.
@@ -29,15 +29,18 @@ Use your Product class as the parent for two derived classes, Book and CD, with 
 
  * Title
  * Author
- * Number of Pages
+ * NumberOfPages
  
 **CD**
 
+* Title
 * Artist
-* Track List
-* Total Length
+* TrackList
+* TotalLength
 
-Ensure the Describe() method works appropriately for these new classes.
+Ensure the Describe() method works appropriately for these new classes (you will need to override the one in the base class).
+
+For Book, the DisplayName should be taken from the Title and Author properties in the format '{Title} by {Author}', and for CD it should be '{Artist} - {Title}'.
 
 Again, try them out in the app with a couple of examples.
 
@@ -50,9 +53,9 @@ Extend your object hierarchy with another class representing an audio book.  Thi
  * Title
  * Author
  * Narrator
- * Total Length
+ * TotalLength
  
- You should use the class hierarchy to share as many of these as possible in the Book class.
+You should use the class hierarchy to share as many of these as possible in the Book class.
 
 The class hierarchy should look as follows:
 
@@ -65,13 +68,22 @@ The class hierarchy should look as follows:
        TextualBook  AudioBook
 ```
 
-Make as many of the classes and methods as you can Abstract.  (The Product class for example can be abstract as it doesn't make sense to have an instance of a non-specific product).
+#### 1.2.3: Getting Abstract
+
+Make as many of the classes and methods as you can Abstract.  (The Product class for example can be abstract as it doesn't make sense to have an instance of a non-specific product.  Only the final nodes of the hierarchy reresent real things in this example).
 
 ### 1.3: Interfaces
 
-Create an interface IShippable which will be used for things which will be physically delivered.  This should include relevant properties such as Weight.
+#### 1.3.1: Ship It
+
+Create an interface IShippable which will be used for things which will be physically delivered.  It only has a single property, Weight.
 
 Make all of the appropriate classes implement the IShippable interface.
+
+### 1.3.2: Audible
+
+Create another interface called IPlayable for audio products.  It should have a TotalLength property and a PlaySample() method.  Make the CD and AudioBook implement this interface.  (We're not actually going to play any audio in this exercise, so when the method is called simply write 'Playing [x]' to the console, where x is the DisplayName.)
+
 
 ### 1.4: Polymorphism
 
