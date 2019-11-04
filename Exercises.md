@@ -92,18 +92,21 @@ Create a ShoppingBasket class which contains a collection of objects representin
 Write a method which returns the total cost of the order, and one which returns the total weight of shippable items.
 
 
-## Part 2: Object Model Design with OO
+## Part 2: An Exercise in Object Model Design
 
-In this section you will put your knowledge of OO syntax into practice by designing and implementing an object hierarchy in C#.
+In this section you will practice your OO syntax and stretch your design muscles by extending the object hierarchy to include a variety of other things.
 
 This is a more open-ended section which has no right or wrong answers but requires you to weigh up different design options and consider how well they would work as part of a larger system.
 
-### 2.1: Class Hierarchy Design
+### 2.1: Extend the Model
 
-Design and implement a class hierarchy representing a simple banking system which allows money to be stored, spent and transferred in different ways.
+Extend the class hierarchy you created, and add supporting classes and interfaces, in whatever way you think most appropriate for use in an online web store.
 
-Consider the different forms money can take, for example cash, credit cards and vouchers, and the different properties of those.
+Here are some suggestions you could try:
 
-Think about different currencies and how the ability to store and/or pay in different ones affects the model.
+ * Extend the existing model for example with eBooks and/or digital music.
+ * Add samples to the TextualBooks.
+ * Add other kinds of products such as headphones, pens, and toasters.
+ * For composite items (e.g. CDs composed of tracks), calculate the aggregated info (e.g. TotalLength) from the individual items.
+ 
 
-The result of this exercise should be an object model implemented in C# which uses inheritance and other OO features as approproate, which could be used by banking services.  If you have time, demonstrate the use of your classes as well, for example with a console application or unit tests.
