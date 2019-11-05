@@ -12,14 +12,11 @@ Based on https://github.com/jwill9999/C-Sharp-Cheatsheet/blob/master/README.md
 [Interfaces](#Interfaces)<br>
 [Polymorphism](#Polymorphism)<br>
 
-
 # Classes
-
 
 A Class is a group of related methods and variables.  
 
 You can create as many instances of your class as you want.  
-
 
 ```c#
 using System;
@@ -41,9 +38,6 @@ namespace ConsoleApplication1
 
             car = new Car("Green");
             Console.WriteLine(car.Describe());
-
-            Console.ReadLine();
-
         }
     }
 
@@ -68,7 +62,6 @@ namespace ConsoleApplication1
         }
     }
 }
-
 ```
 
 * This code creates a new class called Car
@@ -77,8 +70,6 @@ namespace ConsoleApplication1
 * It takes a parameter which allows us to initialize Car objects with a color.
 * The Describe() method allows us to get a nice message
 
-<br>
-
 # Inheritance
 
 Inheritance is the ability to create classes which inherit data and functionality from a parent classe/classes. 
@@ -86,7 +77,6 @@ Inheritance is the ability to create classes which inherit data and functionalit
 The entire .NET framework is built on this concept, with all classes inheriting (directly or indirectly) from System.Object
 
 ```c#
-
 public class Animal
 {
     public void Greet()
@@ -100,7 +90,6 @@ public class Dog : Animal
 {
 
 }
-
 ```
 
 Then we can Create a new Animal and a new Dog. They will both have access to the Greet method though Inheritance.
@@ -111,8 +100,6 @@ animal.Greet();
 Dog dog = new Dog();
 dog.Greet();
 ```
-
-<br>
 
 # Virtual and Override 
 
@@ -134,12 +121,7 @@ public class Dog : Animal
         Console.WriteLine("Hello, I'm a dog!");
     }
 }
-
 ```
-
-
-<br>
-
 
 # Abstract Class
 
@@ -147,7 +129,6 @@ Abstract classes, marked by the keyword abstract in the class definition, are ty
 You ```can't``` create an instance of them.
 
 ```c#
-
 // We can't new up an abstract class
 abstract class FourLeggedAnimal
 {
@@ -162,11 +143,7 @@ class Dog : FourLeggedAnimal
 {
 
 }
-
 ```
-
-
-<br>
 
 # Abstract methods
 
@@ -180,7 +157,6 @@ abstract class FourLeggedAnimal
     public abstract string Describe();
 }
 
-
 class Dog : FourLeggedAnimal
 {
     public override string Describe()
@@ -188,11 +164,7 @@ class Dog : FourLeggedAnimal
         return "I'm a dog!";
     }
 }
-
 ```
-
-
-<br>
 
 # Interfaces
 
@@ -207,7 +179,6 @@ You cannot crateate an instance of an Interface.
 * All Interfaces are Public
 
 > There are NO  access modifiers (public, private, protected etc.),<br> because they are not allowed.
-
 
 ```c#
 class Program
@@ -264,17 +235,13 @@ class Dog : IAnimal, IComparable
         set { name = value; }
     }
 }
-
 ```
-
-<br>
 
 # Polymorphism
 
 Polymorphism allows you to handle derived classes of different types as if they were the parent type.
 
 ```c#
-
 public class Shape
 {
     public virtual void Draw()
@@ -290,6 +257,7 @@ class Circle : Shape
         Console.WriteLine("Drawing a circle");
     }
 }
+
 class Rectangle : Shape
 {
     public override void Draw()
@@ -322,7 +290,5 @@ class Program
             shape.Draw();
         }
     }
-
 }
-
 ```
